@@ -231,7 +231,7 @@ $boxicons = $boxicons ?? '';
       <li class='nav-heading' > Pages</li >
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'users-profile.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."profile"?>' >
           <i class='bi bi-person' ></i >
           <span > Profile</span >
         </a >
@@ -239,7 +239,7 @@ $boxicons = $boxicons ?? '';
         <!--End Profile Page Nav-->
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'pages-faq.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."faq"?>' >
           <i class='bi bi-question-circle' ></i >
           <span > F . A . Q</span >
         </a >
@@ -247,7 +247,7 @@ $boxicons = $boxicons ?? '';
         <!--End F . A . Q Page Nav-->
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'pages-contact.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."contact"?>' >
           <i class='bi bi-envelope' ></i >
           <span > Contact</span >
         </a >
@@ -255,7 +255,7 @@ $boxicons = $boxicons ?? '';
         <!--End Contact Page Nav-->
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'pages-register.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."register"?>' >
           <i class='bi bi-card-list' ></i >
           <span > Register</span >
         </a >
@@ -263,7 +263,7 @@ $boxicons = $boxicons ?? '';
         <!--End Register Page Nav-->
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'pages-login.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."login"?>' >
           <i class='bi bi-box-arrow-in-right' ></i >
           <span > Login</span >
         </a >
@@ -271,7 +271,7 @@ $boxicons = $boxicons ?? '';
         <!--End Login Page Nav-->
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'pages-error-404.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."404"?>' >
           <i class='bi bi-dash-circle' ></i >
           <span > Error 404 </span >
         </a >
@@ -279,7 +279,7 @@ $boxicons = $boxicons ?? '';
         <!--End Error 404 Page Nav-->
 
       <li class='nav-item' >
-        <a class='nav-link collapsed' href = 'pages-blank.html' >
+        <a class='nav-link collapsed' href = '<?=WEB_ROOT."blank"?>' >
           <i class='bi bi-file-earmark' ></i >
           <span > Blank</span >
         </a >
