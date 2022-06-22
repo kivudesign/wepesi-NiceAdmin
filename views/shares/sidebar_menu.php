@@ -21,11 +21,15 @@ $elements = $elements ?? '';
 $layouts = $layouts ?? '';
 $editors = $editors ?? '';
 $validation = $validation ?? "";
-// forms menu active control
+// charts menu active control
 $charts = $charts ?? '';
 $chartjs = $chartjs ?? '';
 $apexcharts = $apexcharts ?? '';
 $echarts = $echarts ?? '';
+//table menu active control
+$tables = $tables ?? "";
+$gereral = $gereral ?? "";
+$data = $data ?? "";
 ?>
 <!-- ======= Sidebar ======= -->
   <aside id = 'sidebar' class='sidebar' >
@@ -151,14 +155,14 @@ $echarts = $echarts ?? '';
         <a class='nav-link collapsed' data-bs-target = '#tables-nav' data-bs-toggle = 'collapse' href = '#' >
           <i class='bi bi-layout-text-window-reverse' ></i ><span > Tables</span ><i class='bi bi-chevron-down ms-auto' ></i >
         </a >
-        <ul id = 'tables-nav' class='nav-content collapse ' data-bs-parent = '#sidebar-nav' >
+        <ul id = 'tables-nav' class='nav-content collapse <?=$tables?>' data-bs-parent = '#sidebar-nav' >
           <li >
-            <a href = 'tables-general.html' >
+            <a href = '<?=WEB_ROOT."tables/gereral"?>' class="<?=$gereral?>">
               <i class='bi bi-circle' ></i ><span > General Tables </span >
             </a >
           </li >
           <li >
-            <a href = 'tables-data.html' >
+            <a href = '<?=WEB_ROOT."tables/data"?>' class="<?=$data?>">
               <i class='bi bi-circle' ></i ><span > Data Tables </span >
             </a >
           </li >

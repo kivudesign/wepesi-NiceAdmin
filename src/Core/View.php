@@ -11,7 +11,7 @@ namespace Wepesi\Core;
         function __construct(string $folder_name="/")
         {
             $this->render=self::ERROR;
-            $this->folder_name=$folder_name;
+            $this->folder_name=$this->addSlaches($folder_name);
         }
 
         /**
@@ -20,10 +20,14 @@ namespace Wepesi\Core;
          */
         function display(string $file_name){
             $file = checkFileExtension($file_name);
-            $file_source=substr($file,0)=="/"? $this->folder_name .$file:$this->folder_name."/".$file;
+            $file_source = $this->folder_name .$this->addSlaches($file);
             if (is_file(ROOT . 'views' . $file_source)) {
                 $this->render = ROOT . 'views' .$file_source;
             }
+        }
+
+        private function addSlaches($link){
+            return substr($link, 0) == '/' ? $link : '/' . $link;
         }
 
         /**
