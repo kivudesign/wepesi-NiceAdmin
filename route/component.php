@@ -1,7 +1,6 @@
 <?php
 
 use Wepesi\Controller\componentController;
-use Wepesi\Core\View;
 
 $route = $route??null;
 

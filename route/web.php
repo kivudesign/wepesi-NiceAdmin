@@ -12,5 +12,6 @@ use Wepesi\Core\View;
     $route->get('/home', [homeController::class,"home"]);
 
     include "component.php";
+    include "forms.php";
 
     $route->run();

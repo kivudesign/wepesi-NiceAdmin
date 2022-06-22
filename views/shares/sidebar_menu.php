@@ -1,18 +1,26 @@
 <?php
-    $alert=$alert??"";
-    $accordion=$accordion??"";
-    $badges=$badges??"";
-    $breadcrumbs=$breadcrumbs??"";
-    $buttons=$buttons??"";
-    $cards=$cards??"";
-    $carousel=$carousel??"";
-    $listgroup=$listgroup??"";
-    $modal=$modal??"";
-    $tabs=$tabs??"";
-    $pagination=$pagination??"";
-    $progress=$progress??"";
-    $spinners=$spinners??"";
-    $tooltips=$tooltips??"";
+// components menu active control
+$component = $component ?? '';
+$alert = $alert ?? '';
+$accordion = $accordion ?? '';
+$badges = $badges ?? '';
+$breadcrumbs = $breadcrumbs ?? '';
+$buttons = $buttons ?? '';
+$cards = $cards ?? '';
+$carousel = $carousel ?? '';
+$listgroup = $listgroup ?? '';
+$modal = $modal ?? '';
+$tabs = $tabs ?? '';
+$pagination = $pagination ?? '';
+$progress = $progress ?? '';
+$spinners = $spinners ?? '';
+$tooltips = $tooltips ?? '';
+// forms menu active control
+$forms = $forms ?? '';
+$elements = $elements ?? '';
+$layouts = $layouts ?? '';
+$editors = $editors ?? '';
+$validation = $validation ?? "";
 ?>
 <!-- ======= Sidebar ======= -->
   <aside id = 'sidebar' class='sidebar' >
@@ -30,7 +38,7 @@
         <a class='nav-link ' data-bs-target = '#components-nav' data-bs-toggle = 'collapse' href = '#' >
           <i class='bi bi-menu-button-wide' ></i ><span > Components</span ><i class='bi bi-chevron-down ms-auto' ></i >
         </a >
-        <ul id = 'components-nav' class='nav-content collapse show' data-bs-parent = '#sidebar-nav' >
+        <ul id = 'components-nav' class='nav-content collapse <?=$component?>' data-bs-parent = '#sidebar-nav' >
           <li >
             <a href = '<?=WEB_ROOT.'components/alert'?>' class='<?=$alert?>' >
               <i class='bi bi-circle' ></i ><span > Alerts</span >
@@ -109,24 +117,24 @@
         <a class='nav-link collapsed' data-bs-target = '#forms-nav' data-bs-toggle = 'collapse' href = '#' >
           <i class='bi bi-journal-text' ></i ><span > Forms</span ><i class='bi bi-chevron-down ms-auto' ></i >
         </a >
-        <ul id = 'forms-nav' class='nav-content collapse ' data-bs-parent = '#sidebar-nav' >
+        <ul id = 'forms-nav' class='nav-content collapse <?=$forms?>' data-bs-parent = '#sidebar-nav' >
           <li >
-            <a href = 'forms-elements.html' >
+            <a href = '<?=WEB_ROOT."forms/elements"?>' class="<?=$elements?>">
               <i class='bi bi-circle' ></i ><span > Form Elements </span >
             </a >
           </li >
           <li >
-            <a href = 'forms-layouts.html' >
+            <a href = '<?= WEB_ROOT . 'forms/layouts' ?>' class="<?=$layouts?>">
               <i class='bi bi-circle' ></i ><span > Form Layouts </span >
             </a >
           </li >
           <li >
-            <a href = 'forms-editors.html' >
+            <a href = '<?= WEB_ROOT . 'forms/editors' ?>' class="<?=$editors?>">
               <i class='bi bi-circle' ></i ><span > Form Editors </span >
             </a >
           </li >
           <li >
-            <a href = 'forms-validation.html' >
+            <a href = '<?= WEB_ROOT . 'forms/validation' ?>' class="<?=$validation?>">
               <i class='bi bi-circle' ></i ><span > Form Validation </span >
             </a >
           </li >

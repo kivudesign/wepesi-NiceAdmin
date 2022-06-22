@@ -9,6 +9,7 @@ class componentController
 
     function __construct(){
         $this->view= new View('/component');
+        $this->view->assign("component","show");
     }
     function alert(){
         $this->view->assign("alert","active");
