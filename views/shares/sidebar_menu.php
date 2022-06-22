@@ -21,6 +21,11 @@ $elements = $elements ?? '';
 $layouts = $layouts ?? '';
 $editors = $editors ?? '';
 $validation = $validation ?? "";
+// forms menu active control
+$charts = $charts ?? '';
+$chartjs = $chartjs ?? '';
+$apexcharts = $apexcharts ?? '';
+$echarts = $echarts ?? '';
 ?>
 <!-- ======= Sidebar ======= -->
   <aside id = 'sidebar' class='sidebar' >
@@ -165,19 +170,19 @@ $validation = $validation ?? "";
         <a class='nav-link collapsed' data-bs-target = '#charts-nav' data-bs-toggle = 'collapse' href = '#' >
           <i class='bi bi-bar-chart' ></i ><span > Charts</span ><i class='bi bi-chevron-down ms-auto' ></i >
         </a >
-        <ul id = 'charts-nav' class='nav-content collapse ' data-bs-parent = '#sidebar-nav' >
+        <ul id = 'charts-nav' class='nav-content collapse <?=$charts?>' data-bs-parent = '#sidebar-nav' >
           <li >
-            <a href = 'charts-chartjs.html' >
+            <a href = '<?=WEB_ROOT."charts/chartjs"?>' class="<?=$chartjs?>">
               <i class='bi bi-circle' ></i ><span > Chart . js</span >
             </a >
           </li >
           <li >
-            <a href = 'charts-apexcharts.html' >
+            <a href = '<?=WEB_ROOT."charts/apexcharts"?>' class="<?=$apexcharts?>">
               <i class='bi bi-circle' ></i ><span > ApexCharts</span >
             </a >
           </li >
           <li >
-            <a href = 'charts-echarts.html' >
+            <a href = '<?=WEB_ROOT."charts/echarts"?>' class="<?=$echarts?>">
               <i class='bi bi-circle' ></i ><span > ECharts</span >
             </a >
           </li >

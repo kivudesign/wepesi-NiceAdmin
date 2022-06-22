@@ -13,5 +13,6 @@ use Wepesi\Core\View;
 
     include "component.php";
     include "forms.php";
+    include "charts.php";
 
     $route->run();
