@@ -6,10 +6,12 @@ namespace Wepesi\Core;
         private array $data=[];
         const ERROR=ROOT."views/404.php";
         private string $render;
+        private string $folder_name;
 
-        function __construct()
+        function __construct(string $folder_name="/")
         {
             $this->render=self::ERROR;
+            $this->folder_name=$this->addSlaches($folder_name);
         }
 
         /**
@@ -18,9 +20,14 @@ namespace Wepesi\Core;
          */
         function display(string $file_name){
             $file = checkFileExtension($file_name);
-            if (is_file(ROOT . 'views/' . $file)) {
-                $this->render = ROOT . 'views/' . $file;
+            $file_source = $this->folder_name .$this->addSlaches($file);
+            if (is_file(ROOT . 'views' . $file_source)) {
+                $this->render = ROOT . 'views' .$file_source;
             }
+        }
+
+        private function addSlaches($link){
+            return substr($link, 0) == '/' ? $link : '/' . $link;
         }
 
         /**

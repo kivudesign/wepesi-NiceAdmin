@@ -7,9 +7,19 @@ use Wepesi\Core\View;
     $route=new Router();
     // setup get started pages index
     $route->get('/', function () {
-        (new View)->display('home');
+        (new View)->display('index');
     });
-    $route->get('/home', [homeController::class,"home"]);
-    //
-    $route->post("/change-lang",[homeController::class,"changeLang"])->middleware([\wepesi\Validation\HomeValidation::class, "changeLang"]);
+    $route->get('/profile', [homeController::class,"profile"]);
+    $route->get('/faq', [homeController::class,"faq"]);
+    $route->get('/contact', [homeController::class,"contact"]);
+    $route->get('/register', [homeController::class,"register"]);
+    $route->get('/login', [homeController::class,"login"]);
+    $route->get('/blank', [homeController::class, "blank"]);
+
+    include "component.php";
+    include "forms.php";
+    include "charts.php";
+    include "tables.php";
+    include "icons.php";
+
     $route->run();
