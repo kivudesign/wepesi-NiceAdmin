@@ -15,21 +15,31 @@ $pagination = $pagination ?? '';
 $progress = $progress ?? '';
 $spinners = $spinners ?? '';
 $tooltips = $tooltips ?? '';
+
 // forms menu active control
 $forms = $forms ?? '';
 $elements = $elements ?? '';
 $layouts = $layouts ?? '';
 $editors = $editors ?? '';
 $validation = $validation ?? "";
+
 // charts menu active control
 $charts = $charts ?? '';
 $chartjs = $chartjs ?? '';
 $apexcharts = $apexcharts ?? '';
 $echarts = $echarts ?? '';
+
 //table menu active control
 $tables = $tables ?? "";
 $gereral = $gereral ?? "";
 $data = $data ?? "";
+
+//icons menu activ control
+$icons = $icons ?? '';
+$bootstrapicons = $bootstrapicons ?? '';
+$remixicons = $remixicons ?? '';
+$boxicons = $boxicons ?? '';
+
 ?>
 <!-- ======= Sidebar ======= -->
   <aside id = 'sidebar' class='sidebar' >
@@ -198,19 +208,19 @@ $data = $data ?? "";
         <a class='nav-link collapsed' data-bs-target = '#icons-nav' data-bs-toggle = 'collapse' href = '#' >
           <i class='bi bi-gem' ></i ><span > Icons</span ><i class='bi bi-chevron-down ms-auto' ></i >
         </a >
-        <ul id = 'icons-nav' class='nav-content collapse ' data-bs-parent = '#sidebar-nav' >
+        <ul id = 'icons-nav' class='nav-content collapse <?=$icons?>' data-bs-parent = '#sidebar-nav' >
           <li >
-            <a href = 'icons-bootstrap.html' >
+            <a href = '<?=WEB_ROOT."nice-icons/bootstrap"?>' class="<?=$bootstrapicons?>">
               <i class='bi bi-circle' ></i ><span > Bootstrap Icons </span >
             </a >
           </li >
           <li >
-            <a href = 'icons-remix.html' >
+            <a href = '<?=WEB_ROOT."nice-icons/remix"?>' class="<?=$remixicons?>">
               <i class='bi bi-circle' ></i ><span > Remix Icons </span >
             </a >
           </li >
           <li >
-            <a href = 'icons-boxicons.html' >
+            <a href = '<?=WEB_ROOT."nice-icons/boxicons"?>' class="<?=$boxicons?>">
               <i class='bi bi-circle' ></i ><span > Boxicons</span >
             </a >
           </li >
