@@ -46,11 +46,11 @@ class homeController{
     }
     function userLogin(){
         Session::put('success', 'login success');
-        Redirect::to(WEB_ROOT . 'login');
+        Redirect::to(WEB_ROOT . 'profile');
     }
     function userRegister(){
         Session::put('success', 'Register success');
-        Redirect::to(WEB_ROOT . 'register');
+        Redirect::to(WEB_ROOT . 'profile');
     }
     function blank(){
         $this->view->assign("blanc","active");

@@ -14,6 +14,7 @@ $route=new Router();
     $route->get('/profile', [homeController::class,"profile"]);
     $route->get('/faq', [homeController::class,"faq"]);
     $route->get('/contact', [homeController::class,"contact"]);
+
     $route->get('/register', [homeController::class,"register"]);
     $route->post('/register', [homeController::class,"userRegister"])
         ->middleware([Permission::class, 'authorization'])
@@ -24,6 +25,9 @@ $route=new Router();
         ->middleware([Permission::class,"authorization"])
         ->middleware([HomeValidation::class,"userLogin"])
     ;
+    $route->get('/logout',function(){
+        \Wepesi\Core\Redirect::to(WEB_ROOT."login");
+    });
     $route->get('/blank', [homeController::class, "blank"]);
 
     include "component.php";
