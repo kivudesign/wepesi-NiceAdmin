@@ -1,5 +1,8 @@
 <?php
 use Wepesi\Core\Bundles;
+use Wepesi\Core\Session;
+use Wepesi\Core\Token;
+Session::flash('Source_page',substr($_SERVER['REDIRECT_URL'],1));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +24,13 @@ use Wepesi\Core\Bundles;
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
+                <?php
+                include "views/shares/alert.php";
+                ?>
               <div class="d-flex justify-content-center py-4">
                 <a href="<?=WEB_ROOT?>" class="logo d-flex align-items-center w-auto">
-                  <img src="<?=Bundles::insertIMG("logo.png")?>" alt="logo">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                    <?= Bundles::insertIMG('logo.png') ?>
+                    <span class="d-none d-lg-block">NiceAdmin</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -38,8 +43,8 @@ use Wepesi\Core\Bundles;
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate method="post" action="<?=WEB_ROOT."connexion"?>">
-
+                  <form class="row g-3 needs-validation" novalidate method="post" action="<?=WEB_ROOT."login"?>">
+                      <input type="hidden" name="token" value="<?= Token::generate()?>">
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
@@ -50,8 +55,8 @@ use Wepesi\Core\Bundles;
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="passwword" class="form-control" id="yourPassword" required>
+                      <label for="yourPassword" class="rm-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
@@ -84,7 +89,7 @@ use Wepesi\Core\Bundles;
           </div>
         </div>
 
-      </section>
+      </section>P
 
     </div>
   </main><!-- End #main -->

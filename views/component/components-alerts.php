@@ -6,7 +6,9 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Components / Alerts - NiceAdmin Bootstrap Template</title>
-  <?php include "views/shares/header.php"?>
+  <?php use Wepesi\Core\Bundles;
+
+  include "views/shares/header.php"?>
 </head>
 
 <body>
@@ -15,8 +17,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../../index.php" class="logo d-flex align-items-center">
-        <img src="../../assets/img/logo.png" alt="">
+      <a href="<?=WEB_ROOT?>" class="logo d-flex align-items-center">
+          <?php Bundles::insertIMG("logo");
+          ?>
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
