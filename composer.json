@@ -1,0 +1,50 @@
+{
+    "name": "wepesi/niceadmin",
+    "description": "Clean, simple and elegant admin template design by bootstap made integrate integrated to a light way php framework to create simple web application",
+    "type": "project",
+    "license": "Apache-2.0",
+    "time": "2021-11-12",
+    "autoload": {
+        "psr-4": {
+            "Wepesi\\": "src/",
+            "Wepesi\\Controller\\": "controller/",
+            "wepesi\\Middleware\\": "middleware/"
+        }
+    },
+    "keywords": [
+        "wepesi","framework","wepesi library",
+        "wepesi framework","wepesi quick",
+        "wepesi orm","quick orm","light orm",
+        "router","routing","route",
+        "validaion","mvc","php mvc",
+        "nice admin","boostrap template",
+        "admin template","boostrap made"
+    ],
+    "homepage": "https://github.com/kivudesign/Wepesi-Quick/issues",
+    "support": {
+        "email": "ibmussa7@gmail.com",
+        "issues": "https://github.com/kivudesign/wepesi-NiceAdmin/issues",
+        "forum": "https://github.com/kivudesign/wepesi-NiceAdmin/discussions",
+        "wiki": "https://github.com/kivudesign/wepesi-NiceAdmin/wiki",
+        "docs": "https://github.com/kivudesign/wepesi-NiceAdmin",
+        "source": "https://github.com/kivudesign/wepesi-NiceAdmin"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/kivudesign/wepesi-NiceAdmin"
+        }
+    ],
+    "include-path": ["lib/"],
+    "authors": [
+        {
+            "name": "bim-g",
+            "email": "ibmussafb@gmail.com",
+            "homepage": "https://github.com/bim-g",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=7.4"
+    }
+}
