@@ -7,6 +7,7 @@
 
   <title>Pages / Register - NiceAdmin Bootstrap Template</title>
   <?php use Wepesi\Core\Bundles;
+  use Wepesi\Core\Token;
 
   include "views/shares/header.php"?>
 </head>
@@ -20,10 +21,12 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
+                <?php
+                include 'views/shares/alert.php';
+                ?>
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                    <img src='<?= Bundles::insertIMG('logo.png') ?>' alt='logo'>
+                <a href="<?=WEB_ROOT?>" class="logo d-flex align-items-center w-auto">
+                    <?= Bundles::insertIMG('logo.png') ?>
                   <span class="d-none d-lg-block">NiceAdmin</span>
                 </a>
               </div><!-- End Logo -->
@@ -37,7 +40,8 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" action="<?=WEB_ROOT."register"?>" method="post" novalidate>
+                      <input type="hidden" name="token" value="<?= Token::generate()?>">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Your Name</label>
                       <input type="text" name="name" class="form-control" id="yourName" required>
@@ -67,7 +71,7 @@
 
                     <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                        <input class="form-check-input" name="terms" type="checkbox"  id="acceptTerms" required>
                         <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
                         <div class="invalid-feedback">You must agree before submitting.</div>
                       </div>

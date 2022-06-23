@@ -1,6 +1,6 @@
 # Wepesi Nice-Admin
 Clean, simple and elegant admin template design by bootstap made integrate into wepesi.
-
+![img.png](assets/img/img.png)
 ###Nice-Admin
 Is a admin dashboard develloped and design by BootstrapMade : https://bootstrapmade.com
 # Wepesi
