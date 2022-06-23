@@ -2,7 +2,7 @@
 Clean, simple and elegant admin template design by bootstap made integrate into wepesi.
 ![img.png](assets/img/img.png)
 ###Nice-Admin
-Is a admin dashboard develloped and design by [BootstrapMade](https://bootstrapmade.com).
+Is a admin dashboard develloped and design by [BootstrapMade](https://bootstrapmade.com)
 # Wepesi
 * Wepesi library
 `wepesi` is the quick ans simple framework the help you devellop simple web application with php and design OOP concept,
@@ -11,7 +11,7 @@ it has been design by following most off principle for big framework but make it
 ## Installation
 The installation of the application does not require somuch thing;
 - In you are familliar with `composer` to install :
-You can find project directly on packagest on : [Wepesi Nice-Admin](https://packagist.org/packages/wepesi/niceadmin)
+You can find project directly on packagest on : [https://packagist.org/packages/wepesi/wepesi](https://packagist.org/packages/wepesi/niceadmin)
 ```shell
  composer create-project wepesi/niceadmin
 ```
