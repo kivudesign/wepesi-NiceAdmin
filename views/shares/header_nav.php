@@ -3,7 +3,7 @@
 
     <div class='d-flex align-items-center justify-content-between'>
         <a href='<?=WEB_ROOT?>' class='logo d-flex align-items-center'>
-            <?=\Wepesi\Core\Bundles::insertIMG("logo.png")?>
+            <?=\Wepesi\Core\Bundles::insertIMG("logo.jpg")?>
             <span class='d-none d-lg-block'>NiceAdmin</span>
         </a>
         <i class='bi bi-list toggle-sidebar-btn'></i>
