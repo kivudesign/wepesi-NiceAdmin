@@ -18,11 +18,11 @@ class Permission
         $source = Session::flash('Source_page');
         if (!Input::exists()) {
             Session::put('errors',"No Data");
-            Redirect::to(WEB_ROOT.$source);
+            Redirect::to($source);
         }
         if (!Token::check(Input::get('token'))) {
             Session::put('errors', 'Token expire');
-            Redirect::to(WEB_ROOT.$source);
+            Redirect::to($source);
         }
     }
 }

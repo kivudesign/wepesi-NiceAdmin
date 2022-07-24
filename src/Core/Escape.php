@@ -27,4 +27,21 @@ class Escape{
         }
         return $randomString;
     }
+
+    static function addSlaches(string $link): string
+    {
+        $get_slashe = substr($link, 0, 1);
+        $remove_first_element = substr($link, 1);
+        if ($get_slashe == '/') {
+            $link = substr(self::addSlaches($remove_first_element), 1);
+        }
+
+        return $link == '' ? $link : '/' . $link;
+    }
+
+    static function checkFileExtension($fileName)
+    {
+        $file_parts = pathinfo($fileName);
+        return isset($file_parts['extension']) ? $fileName : $fileName . '.php';
+    }
 }
