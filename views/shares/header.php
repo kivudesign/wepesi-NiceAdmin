@@ -4,7 +4,7 @@ use Wepesi\Core\Bundles;
     <meta content='' name='description'>
     <meta content='' name='keywords'>
   <!-- Favicons -->
-  <link href="<?=WEB_ROOT?>assets/img/favicon.png" rel="icon">
+  <link href="<?=WEB_ROOT?>assets/img/favicon.ico" rel="icon">
   <link href="<?=WEB_ROOT?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
