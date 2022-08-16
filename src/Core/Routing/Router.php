@@ -8,64 +8,52 @@ use Exception;
 class  Router{
 
         private  $_url;
-        private  $routes=[];
-        private  $_nameRoute=[];
+        private  array $routes;
+        private  array $_nameRoute;
 
         function __construct()
         {
-            $this->_url=$this->getMethodeUrl();
-        }
-
-        /**
-         * @return mixed|void
-         */
-        private function getMethodeUrl(){
-            foreach($_GET as $url) return $url;
-        }
-
-        /**
-         * @return mixed|void
-         */
-        function geturl(){
-            return $this->_url;
+            $this->_nameRoute =[];
+            $this->routes = [];
+            $this->_url = $_SERVER['REQUEST_URI'];
         }
 
         /**
          * @param $path
-         * @param $collable
+         * @param $callable
          * @param null $name
          * @return Route
          */
-        function get($path, $collable,$name=null): Route
+        function get($path, $callable, $name=null): Route
         {
-            return $this->add($path,$collable,$name,"GET");
+            return $this->add($path,$callable,$name,"GET");
         }
 
         /**
          * @param $path
-         * @param $collable
+         * @param $callable
          * @param null $name
          * @return Route
          */
-        function post($path, $collable,$name=null): Route
+        function post($path, $callable, $name=null): Route
         {
-           return $this->add($path,$collable,$name,"POST");
+           return $this->add($path,$callable,$name,"POST");
         }
 
         /**
          * @param $path
-         * @param $collable
+         * @param $callable
          * @param $name
          * @param $methode
          * @return Route
          */
-        private function add($path,$collable,$name,$methode): Route
+        private function add($path, $callable, $name, $methode): Route
         {
-            $route = new Route($path, $collable);
+            $route = new Route($path, $callable);
             $this->routes[$methode][] = $route;
 
-            if(is_string($collable) && $name==null){
-                $name=$collable;
+            if(is_string($callable) && $name==null){
+                $name=$callable;
             }
 
             if($name){
@@ -77,7 +65,7 @@ class  Router{
         /**
          * @throws Exception
          */
-        function url($name, $params=[]): string
+        protected function url($name, $params=[]): string
         {
             try{
                 if(!isset($this->_nameRoute[$name])){
