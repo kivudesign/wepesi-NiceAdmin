@@ -78,7 +78,7 @@ class Route{
         return '([^/]+)';
     }
 
-    function with($param, $regex): \Wepesi\App\Core\Route
+    function with($param, $regex): Route
     {
         $this->_params[$param] = str_replace('(', '(?:', $regex);
         return $this;
