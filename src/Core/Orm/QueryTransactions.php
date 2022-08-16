@@ -125,10 +125,10 @@ namespace Wepesi\Core\Orm;
          */
         private function query($sql, array $params = [])
         {
-            $q = new DBQuery($this->_pdo, $sql, $params);
-            $this->_results = $q->result();
-            $this->_count = $q->rowCount();
-            $this->_error = $q->getError();
+            $q = $this->executeQuery($this->_pdo, $sql, $params);
+            $this->_results = $q['result'];
+            $this->_count = $q['count'];
+            $this->_error = $q['error'];
         }
 
         // update module

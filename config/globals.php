@@ -7,10 +7,11 @@
     // database configuration setup
     $GLOBALS['config']=[
         'mysql'=>[
-            'host'=> $db_conf["host"],
-            'username'=> $db_conf["user"],
-            'password'=> $db_conf["password"],
-            'db'=> $db_conf["database"]
+            'usable' => false,
+            'host' => $db_conf["host"],
+            'username' => $db_conf["user"],
+            'password' => $db_conf["password"],
+            'db' => $db_conf["database"]
         ],
         'remender'=>[],
         'session'=>[
@@ -18,6 +19,7 @@
         ],
         'controller'=>WEB_ROOT,
         'middleware'=>WEB_ROOT,
+        'view'=>WEB_ROOT,
         'vendor'=>false,
         'autoload'=>["src","controller","middleware"]
     ];
