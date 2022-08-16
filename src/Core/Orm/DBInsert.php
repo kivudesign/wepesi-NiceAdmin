@@ -4,43 +4,51 @@ namespace Wepesi\Core\Orm;
 
 class DBInsert
 {
-    private $table, $_pdo;
-    private $_fields;
-    private  $_error,
-        $_results = false,
-        $_count = 0,
-        $_lastid;
+    private string $table;
+    private \PDO $pdo;
+    private array $_fields;
+    private string $_error;
+    private array $_results;
+    private int $lastID;
+    use BuildQuery;
+
     function __construct(\PDO $pdo, string $table)
     {
         $this->table = $table;
-        $this->_pdo = $pdo;
+        $this->pdo = $pdo;
+        $this->_fields = [];
+        $this->_results = [];
+        $this->lastID = 0;
+        $this->_error = '';
     }
 
-    //
-    function field(array $fields)
+    /**
+     * @param array $fields
+     * @return $this
+     */
+    function field(array $fields): DBInsert
     {
-        if (count($fields) && !$this->_fields ) {
-            $params = $fields;
-            $x = 1;
+        if (count($fields) && !$this->_fields) {
+            $field_key_position = 0;
             $keys = array_keys($fields);
             $values = null;
-            $_trim_key=[];
-            foreach ($fields as $f) {
-                $values .= "? ";
-                if ($x < count($fields)) {
+            $trim_key = [];
+            foreach ($fields as $field) {
+                $values .= '? ';
+                if (count($fields) > ($field_key_position + 1)) {
                     $values .= ', ';
                 }
                 //remove white space around the field name
-                $_trim_key[]=trim($keys[($x-1)]);
-                $x++;
+                $trim_key[] = trim($keys[$field_key_position]);
+                $field_key_position++;
             }
-            $all_keys=$_trim_key;
-            $implode_keys= "`" . implode('`,`', $all_keys) . "`";
+
+            $implode_keys = '`' . implode('`,`', $trim_key) . '`';
 
             $this->_fields = [
-                "keys" => $implode_keys,
-                "values" => $values,
-                "params" => $params
+                'keys' => $implode_keys,
+                'values' => $values,
+                'params' => $fields
             ];
         }
         return $this;
@@ -54,24 +62,22 @@ class DBInsert
      */
     private function query(string $sql, array $params = [])
     {
-        $q = new DBQuery($this->_pdo, $sql, $params);
-        $this->_results = $q->result();
-        $this->_count = $q->rowCount();
-        $this->_error = $q->getError();
-        $this->_lastid = $q->lastId();
+        $q = $this->executeQuery($this->pdo, $sql, $params);
+        $this->_results = $q['result'];
+        $this->_error = $q['error'];
+        $this->lastID = $q['lastID'];
     }
 
     /**
-     * @return bool
-     * use this module to create new record
+     *
      */
     private function insert()
     {
         $fields = $this->_fields['keys'];
-        $values =  $this->_fields['values'];
+        $values = $this->_fields['values'];
         $params = $this->_fields['params'];
         $sql = "INSERT INTO $this->table ($fields) VALUES ($values)";
-        return $this->query($sql, $params);
+        $this->query($sql, $params);
     }
 
     /**
@@ -83,27 +89,20 @@ class DBInsert
         $this->insert();
         return $this->_results;
     }
-    // return an error status when an error occure while doing an querry
-    function error()
+
+    /**
+     * @return string
+     */
+    function error(): string
     {
         return $this->_error;
     }
 
     /**
      * @return int
-     * return counted rows of a select query
      */
-    function count()
+    function lastId(): int
     {
-        return $this->_count;
-    }
-
-    /**
-     * @return mixed
-     * access the last id record after creating a new record
-     */
-    function lastId()
-    {
-        return $this->_lastid;
+        return $this->lastID;
     }
 }

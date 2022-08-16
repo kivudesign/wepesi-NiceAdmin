@@ -106,7 +106,14 @@ class VString implements IValidation{
     }
     function unique(string $table_name){
         $check_uniq=$this->db->get($table_name)->where([$this->string_item,'=',$this->string_value])->result();
-        if(count($check_uniq)){
+        if($this->db->error()){
+            $message = [
+                "type"=> "string.unique",
+                "message" => $this->db->error(),
+                "label" => $this->string_item,
+            ];
+            $this->addError($message);
+        }else if($check_uniq && count($check_uniq)){
             $message = [
                 "type"=> "string.unique",
                 "message" => "`{$this->string_item}` = `{$this->string_value}` already exist,it should be unique",
